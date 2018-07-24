@@ -1,0 +1,4 @@
+dim = 4, LX = 4, LT = 16
+g = 0, kappa = 0.124844
+number of blocks: 200 number of steps in each block: 10000
+45.7849 1.00812

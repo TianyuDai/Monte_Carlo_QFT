@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\author{Tianyu Dai}
+\title{PHY781 - Project 2}
+\date{}
+\begin{document}
+\maketitle
+\section*{3.}
+Assume that $d = 2$, $g = 0$, $m_0a = 0.5$, $L_X = 8$. Then, $\kappa = \frac{1}{(2d+m_0^2a^2)} = 1/4.25$. The values of correlation function $C_0^l$ is shown in the following table. \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+d & $L_X$ & $L_T$ & $\kappa$ & $C^l_0$ \\ 
+\hline 
+2 & 8 & 16 & 0.235294118 & 0.1573400844\\ 
+\hline 
+2 & 8 & 24 & 0.235294118 & 0.0217219005\\ 
+\hline 
+2 & 8 & 32 & 0.235294118 & 0.0029999106\\ 
+\hline 
+2 & 8 & 48 & 0.235294118 & 5.72E-05\\ 
+\hline 
+
+\end{tabular}
+\end{center} 
+Data in the table are fitted to the equation $C_0^l = A*\exp(-BL_T/2) + C$. The fitted parameters are $A = 8.25528324$, $B = 0.495025299$ and $C = 1.08084156e-08$. \\
+According to the function in problem, $a = B/M_{phys}$. In natural units, $1 = \bar{h}c = 0.197327 GeV * fm$. Assume $M_{phys} = 100GeV$, we have $a = 9.76819\times 10^{-4} fm$. $L = L_X a = 7.81455\times10^{-3} fm$, so $C = \frac{L_x|\left<0|\phi|0\right>|^2}{\kappa}$. We have $\left<0|\phi|0\right> = 1.22800\times 10^{-4}$. $A = \frac{L_x|\left<\pi|\phi|0\right>|^2}{\kappa}$, we have $\left<\pi|\phi|0\right> = 0.492750$. \\
+
+\section*{4.}
+To keep $M_{phys}$ and L the same, we should double $L_X$ and find $\kappa$ to make the fitted $M_{phys}a$ half of the original value. Since we can calculate the exact value in free case, we can easily find the proper $\kappa$ to be 0.246212599.  The code is attached in Appendix B. To make the result more accurate, I fit the data for $L_T = 32, 48, 64, 96, 128, 256$. \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+d & $L_X$ & $L_T$ & $\kappa$ & $C^l_0$ \\ 
+\hline 
+2 & 16 & 16 & 0.246212599 & 2.28858\\ 
+\hline 
+2 & 16 & 24 & 0.246212599 & 0.310258\\ 
+\hline 
+2 & 16 & 32 & 0.246212599 & 0.0428486\\ 
+\hline 
+2 & 16 & 48 & 0.246212599 & 0.00591972\\ 
+\hline 
+2 & 16 & 64 & 0.246212599 & 8.17841e-04\\ 
+\hline 
+2 & 16 & 96 & 0.246212599 & 1.12989e-04\\ 
+\hline 
+2 & 16 & 128 & 0.246212599 & 2.15662e-06\\ 
+\hline 
+2 & 16 & 256 & 0.246212599 & 2.86231e-13\\ 
+\hline 
+\end{tabular}
+\end{center}
+The fitted parameters are $A = 16.2666$, $B = 0.247467$ and $C = 5.29679886e-04$. Then, $\left<0|\phi|0\right> = 2.8550\times10^{-3}$, $\left<\pi|\phi|0\right> = 0.500315$. \\
+When the lattice spacing is reduced to quater of original one. We should choose $\kappa = 0.249075732$ to keep $M_{phys}$ and L the same. We have the data as the following table. \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+d & $L_X$ & $L_T$ & $\kappa$ & $C^l_0$ \\ 
+\hline 
+2 & 32 & 16 & 0.249075732 & 14.4831\\ 
+\hline 
+2 & 32 & 24 & 0.249075732 & 4.78586\\ 
+\hline 
+2 & 32 & 32 & 0.249075732 & 1.77532\\ 
+\hline 
+2 & 32 & 48 & 0.249075732 & 0.668601\\ 
+\hline 
+2 & 32 & 64 & 0.246212599 & 0.252340\\ 
+\hline 
+2 & 32 & 96 & 0.246212599 & 0.0952655\\ 
+\hline 
+2 & 32 & 128 & 0.246212599 & 0.0135792\\ 
+\hline 
+2 & 32 & 256 & 0.246212599 & 5.60596e-06\\ 
+\hline 
+\end{tabular}
+\end{center}
+The fitted parameters are $A = 34.6075$, $B = 0.123705$ and $C = 3.09979\times10^{-3}$. Then, $\left<0|\phi|0\right> = 4.91198\times10^{-3}$, $\left<\pi|\phi|0\right> = 0.519010$. \\
+From the calculated result, we can observe that $\left<0|\phi|0\right>$ is much smaller than $\left<\pi|\phi|0\right>$, but both $\left<0|\phi|0\right>$ and $\left<\pi|\phi|0\right>$ increases slightly when the lattice spacing decreases. Since the calculation has some error, the increasement might just be a coincidence. We can conculude that when the field is observed, it is nearly impossible to be in the ground state, while the probability for the field to be in the one particle state is around 0.5. \\
+
+\section*{5.}
+Define $m_0^2 = M_{phys}^2 + \delta m_0^2$. Since $\kappa = \frac{1}{(2d+m_0^2a^2)}$, $m_0^2 = \frac{1}{a^2}(\frac{1}{\kappa}-2d)$. Thus, for $a = 9.76819\times 10^{-4} fm$, $m_0 = 101.005GeV$, $\delta m_0^2 = 202.010GeV^2$. When we halve the lattice spacing, $a = 4.88319\times10^{-4} fm$, $m_0 = 100.237GeV$, $\delta m_0^2 = 47.4717GeV^2$. When we make the lattice spacing quater of the original value, $a = 2.44103\times10^{-4} fm$, $m_0 = 98.4865GeV$, $\delta m_0^2 = -300.412GeV^2$. Since there are only four points to be fitted and the result are invalid when $L_T$ is too small, the fitting result might be inaccurate. \\
+
+\section*{6.}
+When we set $d = 2$, $g = 0.01$, $m_0a = 0.1$, $L_X = 8$, $\kappa = 1/4.01$, data is shown in the following table. \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+d & $L_X$ & $L_T$ & $\kappa$ & \multicolumn{2}{c|}{$C_l^0$} \\ 
+\hline 
+\multicolumn{4}{|c|}{•} & Monte Carlo & Error\\ 
+\hline 
+2 & 8 & 16 & 0.249376559 & 0.0153983 & 4.81E-05\\ 
+\hline 
+2 & 8 & 24 & 0.249376559 & 0.00363053 & 1.67E-05\\ 
+\hline 
+2 & 8 & 32 & 0.249376559 & 0.000848118 & 6.04E-06\\ 
+\hline 
+2 & 8 & 48 & 0.249376559 & 1.6178E-07 & 5.87E-08\\ 
+\hline 
+\end{tabular} 
+\end{center}
+The fitted parameters are $A = 5.08059117$, $B = 0.724869785$, $C = 4.98659168e-07$. We can calculate $a = 1.42903\times10^{-3} fm$. $\left<0|\phi|0\right> = 1.17199\times10^{-4}$, $\left<\pi|\phi|0\right> = 0.397960$. \\
+When we make the lattice spacing to be half of the original value by setting $\kappa = 0.2796$, we have the data in the following table. \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+d & $L_X$ & $L_T$ & $\kappa$ & \multicolumn{2}{c|}{$C_l^0$} \\ 
+\hline 
+\multicolumn{4}{|c|}{•} & Monte Carlo & Error\\ 
+\hline 
+2 & 16 & 16 & 0.2796 & 0.472222 & 0.0010133\\ 
+\hline 
+2 & 16 & 24 & 0.2796 & 0.118301 & 0.000366868\\ 
+\hline 
+2 & 16 & 32 & 0.2796 & 0.0272178 & 0.000131877\\ 
+\hline 
+2 & 16 & 48 & 0.2796 & 0.00143473 & 9.45866E-06\\ 
+\hline 
+\end{tabular} 
+\end{center}
+The fitted parameters are $A = 9.47422169$, $B = 0.365324486$, $C = 4.53728078e-08$. From these parameters, we can see that B is nearly half of the original fitted data, which means that the choice of $\kappa$ is resonable. We can calculate $a = 7.20885\times10^{-4} fm$. $\left<0|\phi|0\right> = 2.81583\times10^{-5}$, $\left<\pi|\phi|0\right> = 0.406893$. \\
+When we make the lattice spacing to be quater of the original value by setting $\kappa = 0.2905$, we have the data in the following table. \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+d & $L_X$ & $L_T$ & $\kappa$ & \multicolumn{2}{c|}{$C_l^0$} \\ 
+\hline 
+\multicolumn{4}{|c|}{•} & Monte Carlo & Error\\ 
+\hline 
+2 & 32 & 16 & 0.2905 & 3.74834 & 0.00487458\\ 
+\hline 
+2 & 32 & 24 & 0.2905 & 1.77304 & 0.00525049\\ 
+\hline 
+2 & 32 & 32 & 0.2905 & 0.832098 & 0.00304017\\ 
+\hline 
+2 & 32 & 48 & 0.2905 & 0.183132 & 0.000312508\\ 
+\hline 
+\end{tabular} 
+\end{center}
+The fitted parameters are $A = 16.8381679$, $B = 0.187757525$, $C = 5.64099863e-16$. From these parameters, we can see that B is nearly quater of the original fitted data, which means that the choice of $\kappa$ is resonable. We can calculate $a = 3.70497\times10^{-4} fm$. $\left<0|\phi|0\right> = 2.26296\times10^{-9}$, $\left<\pi|\phi|0\right> = 0.390972$. \\
+When $\kappa = 0.249376559$, we have $(m_0a_0)^2 = \frac{1}{\kappa}-2d = 0.1$, $\delta (m_0a)^2 = -0.624192$. When $\kappa = 0.2796$,  $(m_0a_0)^2 = \frac{1}{\kappa}-2d = -0.423462$, $\delta (m_0a)^2 = -0.788786$. When $\kappa = 0.2905$,  $m_0 = \frac{1}{a}\sqrt{\frac{1}{\kappa}-2d} = -0.557659$, $\delta (m_0a)^2 = -0.745416$. 
+
+\section*{7.}
+In the free case, $\left<\pi|\phi|0\right>$ increases slightly when the lattice spacing decreases. However, in the interacting case, $\left<\pi|\phi|0\right>$ fluctuates around 0.4 when the lattice spacing decreases. In addition, in the free case, $\left<\pi|\phi|0\right>$ is around 0.5, while in the interacting case, $\left<\pi|\phi|0\right>$ is around 0.4. \\
+
+\section*{8.}
+In cutoff renormalization, we put a cutoff on the momentum to avoid diverging caused by infinite momentum. In lattice renormalization, we constrain the momentum in 1st Brillouin zone ($p \leq \frac{2\pi}{a}$). When the lattice spacing decreases, the range of the momentum increases. Thus, decreasing the lattice spacing is equivalent to increasing the cutoff. If eventually $\delta m_0 a^2$ reaches a non-zero constant instead of continuing to decrease as the lattice spacing decreases, $\delta m_0$ diverges. Thus, this statement is equivalent to "The additive renormalization $\delta m_0^2$ diverges quadratically with the cutoff in an interacting theory. "
+\end{document}

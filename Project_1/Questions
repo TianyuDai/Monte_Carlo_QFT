@@ -1,0 +1,72 @@
+1. How to initialize grid rho? 
+   Gaussian distribution around 0? How to generate Gaussian distribution(heat bath, built-in)? only positive values?  
+2. Should periodic boundary condition be included? 
+3. How to deal with the new added site? 
+4. The same way to settle LT site and LX site? 
+5. Is alpha defined by the nearest neighbor of chi_x? 
+6. The new chi include sign? 
+7. What if sign is changed due to regular update? 
+
+
+
+
+
+
+/*
+		int left = (LT + visited[i][1] - 1) % LT; 
+		int right = (visited[i][1] + 1) % LT; 
+		int up = (LX + visited[i][0] - 1) % LX; 
+		int down = (visited[i][0] + 1) % LX; 
+		if (sign[visited[i][0]][left] != sign[visited[i][0]][visited[i][1]])
+			if (!flag[visited[i][0]][left])
+			{
+				double beta = kappa * rho[visited[i][0]][visited[i][1]] * rho[visited[i][0]][left]; 
+				double p = 1 - exp(-2. * beta); 
+				if (((double) rand() / RAND_MAX) < p)
+				{
+					std::vector<int> new_added{visited[i][0], left}; 
+					visited.push_back(new_added); 
+					flag[new_added[0]][new_added[1]] = true; 
+					sign[new_added[0]][new_added[1]] *= -1; 
+				}
+			}
+		if (sign[visited[i][0]][right] != sign[visited[i][0]][visited[i][1]])
+			if (!flag[visited[i][0]][right])
+			{
+				double beta = kappa * rho[visited[i][0]][visited[i][1]] * rho[visited[i][0]][right]; 
+				double p = 1 - exp(-2. * beta); 
+				if (((double) rand() / RAND_MAX) < p)
+				{
+					std::vector<int> new_added{visited[i][0], right}; 
+					visited.push_back(new_added); 
+					flag[new_added[0]][new_added[1]] = true; 
+					sign[new_added[0]][new_added[1]] *= -1; 
+				}
+			}
+		if (sign[up][visited[i][1]] != sign[visited[i][0]][visited[i][1]])
+			if (!flag[up][visited[i][1]])
+			{
+				double beta = kappa * rho[visited[i][0]][visited[i][1]] * rho[up][visited[i][1]]; 
+				double p = 1 - exp(-2. * beta); 
+				if (((double) rand() / RAND_MAX) < p)
+				{
+					std::vector<int> new_added{up, visited[i][1]}; 
+					visited.push_back(new_added); 
+					flag[new_added[0]][new_added[1]] = true; 
+					sign[new_added[0]][new_added[1]] *= -1; 
+				}
+			}
+		if (sign[down][visited[i][1]] != sign[visited[i][0]][visited[i][1]])
+			if (!flag[down][visited[i][1]])
+			{
+				double beta = kappa * rho[visited[i][0]][visited[i][1]] * rho[down][visited[i][1]]; 
+				double p = 1 - exp(-2. * beta); 
+				if (((double) rand() / RAND_MAX) < p)
+				{
+					std::vector<int> new_added{down, visited[i][1]}; 
+					visited.push_back(new_added); 
+					flag[new_added[0]][new_added[1]] = true; 
+					sign[new_added[0]][new_added[1]] *= -1; 
+				}
+			}
+*/
